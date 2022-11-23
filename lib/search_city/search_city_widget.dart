@@ -1,4 +1,5 @@
 import '../backend/api_requests/api_calls.dart';
+import '../components/empty_cities_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -136,6 +137,9 @@ class _SearchCityWidgetState extends State<SearchCityWidget> {
                             (apiResult8qg?.jsonBody ?? ''),
                             r'''$.predictions''',
                           ).toList();
+                          if (cities.isEmpty) {
+                            return EmptyCitiesWidget();
+                          }
                           return ListView.builder(
                             padding: EdgeInsets.zero,
                             shrinkWrap: true,
