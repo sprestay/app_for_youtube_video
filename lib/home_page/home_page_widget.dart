@@ -23,7 +23,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (!valueOrDefault<bool>(currentUserDocument?.profileIsFull, false)) {
-        context.pushNamed('FillProfile');
+        context.goNamed('FillProfile');
 
         return;
       }
@@ -78,7 +78,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     ),
                                     child: InkWell(
                                       onTap: () async {
-                                        context.pushNamed('SearchCity');
+                                        context.pushNamed(
+                                          'SearchCity',
+                                          queryParams: {
+                                            'isFROM': serializeParam(
+                                              true,
+                                              ParamType.bool,
+                                            ),
+                                          }.withoutNulls,
+                                        );
                                       },
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -110,24 +118,39 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
                                     ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        if (functions
-                                            .stringIsEmpty(FFAppState().to))
-                                          Text(
-                                            'Куда',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText2,
-                                          ),
-                                        if (!functions
-                                            .stringIsEmpty(FFAppState().to))
-                                          Text(
-                                            FFAppState().to,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1,
-                                          ),
-                                      ],
+                                    child: InkWell(
+                                      onTap: () async {
+                                        context.pushNamed(
+                                          'SearchCity',
+                                          queryParams: {
+                                            'isFROM': serializeParam(
+                                              false,
+                                              ParamType.bool,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      },
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          if (functions
+                                              .stringIsEmpty(FFAppState().to))
+                                            Text(
+                                              'Куда',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText2,
+                                            ),
+                                          if (!functions
+                                              .stringIsEmpty(FFAppState().to))
+                                            Text(
+                                              FFAppState().to,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1,
+                                            ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                   Padding(
