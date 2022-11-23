@@ -99,7 +99,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'SearchCity',
               path: 'searchCity',
-              builder: (context, params) => SearchCityWidget(),
+              builder: (context, params) => SearchCityWidget(
+                isFROM: params.getParam('isFROM', ParamType.bool),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

@@ -83,11 +83,22 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Text(
-                                            'Откуда',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText2,
-                                          ),
+                                          if (functions
+                                              .stringIsEmpty(FFAppState().from))
+                                            Text(
+                                              'Откуда',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText2,
+                                            ),
+                                          if (!functions
+                                              .stringIsEmpty(FFAppState().from))
+                                            Text(
+                                              FFAppState().from,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1,
+                                            ),
                                         ],
                                       ),
                                     ),
@@ -102,11 +113,20 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
-                                        Text(
-                                          'Куда',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText2,
-                                        ),
+                                        if (functions
+                                            .stringIsEmpty(FFAppState().to))
+                                          Text(
+                                            'Куда',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText2,
+                                          ),
+                                        if (!functions
+                                            .stringIsEmpty(FFAppState().to))
+                                          Text(
+                                            FFAppState().to,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1,
+                                          ),
                                       ],
                                     ),
                                   ),

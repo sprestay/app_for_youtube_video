@@ -8,7 +8,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SearchCityWidget extends StatefulWidget {
-  const SearchCityWidget({Key? key}) : super(key: key);
+  const SearchCityWidget({
+    Key? key,
+    this.isFROM,
+  }) : super(key: key);
+
+  final bool? isFROM;
 
   @override
   _SearchCityWidgetState createState() => _SearchCityWidgetState();
@@ -152,11 +157,20 @@ class _SearchCityWidgetState extends State<SearchCityWidget> {
                                     EdgeInsetsDirectional.fromSTEB(0, 5, 0, 5),
                                 child: InkWell(
                                   onTap: () async {
-                                    setState(
-                                        () => FFAppState().from = getJsonField(
-                                              citiesItem,
-                                              r'''$.description''',
-                                            ).toString());
+                                    if (widget.isFROM!) {
+                                      setState(() =>
+                                          FFAppState().from = getJsonField(
+                                            citiesItem,
+                                            r'''$.description''',
+                                          ).toString());
+                                    } else {
+                                      setState(
+                                          () => FFAppState().to = getJsonField(
+                                                citiesItem,
+                                                r'''$.description''',
+                                              ).toString());
+                                    }
+
                                     context.pop();
                                   },
                                   child: Text(
