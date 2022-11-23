@@ -58,6 +58,14 @@ class _$TripRecordSerializer implements StructuredSerializer<TripRecord> {
                   DocumentReference, const [const FullType.nullable(Object)])
             ])));
     }
+    value = object.car;
+    if (value != null) {
+      result
+        ..add('car')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                DocumentReference, const [const FullType.nullable(Object)])));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -105,6 +113,12 @@ class _$TripRecordSerializer implements StructuredSerializer<TripRecord> {
                     DocumentReference, const [const FullType.nullable(Object)])
               ]))! as BuiltList<Object?>);
           break;
+        case 'car':
+          result.car = serializers.deserialize(value,
+              specifiedType: const FullType(DocumentReference, const [
+                const FullType.nullable(Object)
+              ])) as DocumentReference<Object?>?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -130,13 +144,21 @@ class _$TripRecord extends TripRecord {
   @override
   final BuiltList<DocumentReference<Object?>>? passengers;
   @override
+  final DocumentReference<Object?>? car;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$TripRecord([void Function(TripRecordBuilder)? updates]) =>
       (new TripRecordBuilder()..update(updates))._build();
 
   _$TripRecord._(
-      {this.from, this.to, this.when, this.driver, this.passengers, this.ffRef})
+      {this.from,
+      this.to,
+      this.when,
+      this.driver,
+      this.passengers,
+      this.car,
+      this.ffRef})
       : super._();
 
   @override
@@ -155,6 +177,7 @@ class _$TripRecord extends TripRecord {
         when == other.when &&
         driver == other.driver &&
         passengers == other.passengers &&
+        car == other.car &&
         ffRef == other.ffRef;
   }
 
@@ -162,9 +185,11 @@ class _$TripRecord extends TripRecord {
   int get hashCode {
     return $jf($jc(
         $jc(
-            $jc($jc($jc($jc(0, from.hashCode), to.hashCode), when.hashCode),
-                driver.hashCode),
-            passengers.hashCode),
+            $jc(
+                $jc($jc($jc($jc(0, from.hashCode), to.hashCode), when.hashCode),
+                    driver.hashCode),
+                passengers.hashCode),
+            car.hashCode),
         ffRef.hashCode));
   }
 
@@ -176,6 +201,7 @@ class _$TripRecord extends TripRecord {
           ..add('when', when)
           ..add('driver', driver)
           ..add('passengers', passengers)
+          ..add('car', car)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -206,6 +232,10 @@ class TripRecordBuilder implements Builder<TripRecord, TripRecordBuilder> {
   set passengers(ListBuilder<DocumentReference<Object?>>? passengers) =>
       _$this._passengers = passengers;
 
+  DocumentReference<Object?>? _car;
+  DocumentReference<Object?>? get car => _$this._car;
+  set car(DocumentReference<Object?>? car) => _$this._car = car;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -222,6 +252,7 @@ class TripRecordBuilder implements Builder<TripRecord, TripRecordBuilder> {
       _when = $v.when;
       _driver = $v.driver;
       _passengers = $v.passengers?.toBuilder();
+      _car = $v.car;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -252,6 +283,7 @@ class TripRecordBuilder implements Builder<TripRecord, TripRecordBuilder> {
               when: when,
               driver: driver,
               passengers: _passengers?.build(),
+              car: car,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;
