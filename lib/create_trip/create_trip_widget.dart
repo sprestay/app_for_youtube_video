@@ -79,9 +79,8 @@ class _CreateTripWidgetState extends State<CreateTripWidget> {
                       'Дата отправления:',
                       style: FlutterFlowTheme.of(context).bodyText1,
                     ),
-                    TextFormField(
-                      controller: textController,
-                      onFieldSubmitted: (_) async {
+                    InkWell(
+                      onTap: () async {
                         await DatePicker.showDatePicker(
                           context,
                           showTitleActions: true,
@@ -92,54 +91,63 @@ class _CreateTripWidgetState extends State<CreateTripWidget> {
                           minTime: getCurrentTimestamp,
                         );
                       },
-                      autofocus: true,
-                      readOnly: true,
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        hintText: 'Укажите дату отпрвления',
-                        hintStyle: FlutterFlowTheme.of(context).bodyText2,
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).black,
-                            width: 1,
-                          ),
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(4.0),
-                            topRight: Radius.circular(4.0),
-                          ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
                         ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).black,
-                            width: 1,
+                        child: TextFormField(
+                          controller: textController,
+                          autofocus: true,
+                          readOnly: true,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            hintText: 'Укажите дату отпрвления',
+                            hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).black,
+                                width: 1,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).black,
+                                width: 1,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            errorBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            focusedErrorBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
                           ),
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(4.0),
-                            topRight: Radius.circular(4.0),
-                          ),
-                        ),
-                        errorBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00000000),
-                            width: 1,
-                          ),
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(4.0),
-                            topRight: Radius.circular(4.0),
-                          ),
-                        ),
-                        focusedErrorBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00000000),
-                            width: 1,
-                          ),
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(4.0),
-                            topRight: Radius.circular(4.0),
-                          ),
+                          style: FlutterFlowTheme.of(context).bodyText1,
                         ),
                       ),
-                      style: FlutterFlowTheme.of(context).bodyText1,
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
