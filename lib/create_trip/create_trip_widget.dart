@@ -295,7 +295,7 @@ class _CreateTripWidgetState extends State<CreateTripWidget> {
                           final tripCreateData = createTripRecordData(
                             from: FFAppState().from,
                             to: FFAppState().to,
-                            when: datePicked,
+                            when: getCurrentTimestamp,
                             driver: currentUserReference,
                             car: FFAppState().choosenCar,
                           );
