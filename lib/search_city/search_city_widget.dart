@@ -134,60 +134,61 @@ class _SearchCityWidgetState extends State<SearchCityWidget> {
                       ),
                       style: FlutterFlowTheme.of(context).bodyText1,
                     ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                      child: Builder(
-                        builder: (context) {
-                          final cities = getJsonField(
-                            (apiResult8qg?.jsonBody ?? ''),
-                            r'''$.predictions''',
-                          ).toList();
-                          if (cities.isEmpty) {
-                            return EmptyCitiesWidget();
-                          }
-                          return ListView.builder(
-                            padding: EdgeInsets.zero,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            itemCount: cities.length,
-                            itemBuilder: (context, citiesIndex) {
-                              final citiesItem = cities[citiesIndex];
-                              return Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 5),
-                                child: InkWell(
-                                  onTap: () async {
-                                    if (widget.isFROM!) {
-                                      setState(() =>
-                                          FFAppState().from = getJsonField(
-                                            citiesItem,
-                                            r'''$.description''',
-                                          ).toString());
-                                    } else {
-                                      setState(
-                                          () => FFAppState().to = getJsonField(
-                                                citiesItem,
-                                                r'''$.description''',
-                                              ).toString());
-                                    }
+                    if (apiResult8qg != null)
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                        child: Builder(
+                          builder: (context) {
+                            final cities = getJsonField(
+                              (apiResult8qg?.jsonBody ?? ''),
+                              r'''$.predictions''',
+                            ).toList();
+                            if (cities.isEmpty) {
+                              return EmptyCitiesWidget();
+                            }
+                            return ListView.builder(
+                              padding: EdgeInsets.zero,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              itemCount: cities.length,
+                              itemBuilder: (context, citiesIndex) {
+                                final citiesItem = cities[citiesIndex];
+                                return Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 5, 0, 5),
+                                  child: InkWell(
+                                    onTap: () async {
+                                      if (widget.isFROM!) {
+                                        setState(() =>
+                                            FFAppState().from = getJsonField(
+                                              citiesItem,
+                                              r'''$.description''',
+                                            ).toString());
+                                      } else {
+                                        setState(() =>
+                                            FFAppState().to = getJsonField(
+                                              citiesItem,
+                                              r'''$.description''',
+                                            ).toString());
+                                      }
 
-                                    context.pop();
-                                  },
-                                  child: Text(
-                                    getJsonField(
-                                      citiesItem,
-                                      r'''$.description''',
-                                    ).toString(),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText1,
+                                      context.pop();
+                                    },
+                                    child: Text(
+                                      getJsonField(
+                                        citiesItem,
+                                        r'''$.description''',
+                                      ).toString(),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1,
+                                    ),
                                   ),
-                                ),
-                              );
-                            },
-                          );
-                        },
+                                );
+                              },
+                            );
+                          },
+                        ),
                       ),
-                    ),
                   ],
                 ),
               ),
