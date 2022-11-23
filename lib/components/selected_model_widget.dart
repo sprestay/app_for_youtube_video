@@ -70,6 +70,7 @@ class _SelectedModelWidgetState extends State<SelectedModelWidget> {
                         onTap: () async {
                           setState(
                               () => FFAppState().selectedModel = modelItem);
+                          context.pop();
                           Navigator.pop(context);
                         },
                         child: ListTile(
