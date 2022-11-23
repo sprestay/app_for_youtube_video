@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "998439436362",
+    "firebase_url": "https://try-to-count-items.firebaseio.com",
+    "project_id": "try-to-count-items",
+    "storage_bucket": "try-to-count-items.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:998439436362:android:fd3b83f66edbc0b81fe6b3",
+        "android_client_info": {
+          "package_name": "com.mycompany.farmmarketdemonstration"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "998439436362-c4m288ms20vaftfigf75bavu69hdhfj7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.farmmarketdemonstration",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "998439436362-f0foc743bktgiml8j00598e77e0ueioh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAC3fyFUfKCYic3KQO8nzKhTrkmMP2aYp4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "998439436362-f0foc743bktgiml8j00598e77e0ueioh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "998439436362-9sfavo0q0jhqvpjqb76d8a6k174vtqmg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.farmmarketdemonstration"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:998439436362:android:1be112af7ac58fc61fe6b3",
+        "android_client_info": {
+          "package_name": "com.sprestay.video4app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "998439436362-6uauofibjkg9sffqj4qa3e7fqadcf424.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sprestay.video4app",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "998439436362-f0foc743bktgiml8j00598e77e0ueioh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAC3fyFUfKCYic3KQO8nzKhTrkmMP2aYp4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "998439436362-f0foc743bktgiml8j00598e77e0ueioh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "998439436362-9sfavo0q0jhqvpjqb76d8a6k174vtqmg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.farmmarketdemonstration"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
