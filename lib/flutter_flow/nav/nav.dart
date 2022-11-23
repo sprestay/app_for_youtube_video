@@ -68,18 +68,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, _) =>
-          appStateNotifier.loggedIn ? HomePageWidget() : StartPageWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : StartPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? HomePageWidget() : StartPageWidget(),
+              appStateNotifier.loggedIn ? NavBarPage() : StartPageWidget(),
           routes: [
             FFRoute(
               name: 'HomePage',
               path: 'homePage',
-              builder: (context, params) => HomePageWidget(),
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'HomePage')
+                  : HomePageWidget(),
             ),
             FFRoute(
               name: 'StartPage',
@@ -112,6 +114,28 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'AddCar',
               path: 'addCar',
               builder: (context, params) => AddCarWidget(),
+            ),
+            FFRoute(
+              name: 'SearchTrip',
+              path: 'searchTrip',
+              builder: (context, params) => SearchTripWidget(),
+            ),
+            FFRoute(
+              name: 'TripDetails',
+              path: 'tripDetails',
+              asyncParams: {
+                'trip': getDoc('trip', TripRecord.serializer),
+              },
+              builder: (context, params) => TripDetailsWidget(
+                trip: params.getParam('trip', ParamType.Document),
+              ),
+            ),
+            FFRoute(
+              name: 'ActiveTrips',
+              path: 'activeTrips',
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'ActiveTrips')
+                  : ActiveTripsWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

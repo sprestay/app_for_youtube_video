@@ -6,3 +6,6 @@ export 'fill_profile/fill_profile_widget.dart' show FillProfileWidget;
 export 'search_city/search_city_widget.dart' show SearchCityWidget;
 export 'create_trip/create_trip_widget.dart' show CreateTripWidget;
 export 'add_car/add_car_widget.dart' show AddCarWidget;
+export 'search_trip/search_trip_widget.dart' show SearchTripWidget;
+export 'trip_details/trip_details_widget.dart' show TripDetailsWidget;
+export 'active_trips/active_trips_widget.dart' show ActiveTripsWidget;

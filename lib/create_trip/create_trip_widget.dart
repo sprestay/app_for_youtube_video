@@ -19,22 +19,8 @@ class CreateTripWidget extends StatefulWidget {
 
 class _CreateTripWidgetState extends State<CreateTripWidget> {
   DateTime? datePicked;
-  TextEditingController? textController;
   TripRecord? trip;
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  @override
-  void initState() {
-    super.initState();
-    textController =
-        TextEditingController(text: dateTimeFormat('MMMEd', datePicked));
-  }
-
-  @override
-  void dispose() {
-    textController?.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,57 +81,6 @@ class _CreateTripWidgetState extends State<CreateTripWidget> {
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                        ),
-                        child: TextFormField(
-                          controller: textController,
-                          autofocus: true,
-                          readOnly: true,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            hintText: 'Укажите дату отпрвления',
-                            hintStyle: FlutterFlowTheme.of(context).bodyText2,
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).black,
-                                width: 1,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).black,
-                                width: 1,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            errorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            focusedErrorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                          ),
-                          style: FlutterFlowTheme.of(context).bodyText1,
                         ),
                       ),
                     ),
@@ -323,7 +258,8 @@ class _CreateTripWidgetState extends State<CreateTripWidget> {
                               .override(
                                 fontFamily: 'Lato',
                                 color: functions.checkCreateTrip(
-                                        FFAppState().choosenCar, datePicked)
+                                        FFAppState().choosenCar,
+                                        getCurrentTimestamp)
                                     ? FlutterFlowTheme.of(context).activeColor
                                     : FlutterFlowTheme.of(context)
                                         .inActiveColor,
