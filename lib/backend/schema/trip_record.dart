@@ -22,6 +22,8 @@ abstract class TripRecord implements Built<TripRecord, TripRecordBuilder> {
 
   BuiltList<DocumentReference>? get passengers;
 
+  DocumentReference? get car;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -56,6 +58,7 @@ Map<String, dynamic> createTripRecordData({
   String? to,
   DateTime? when,
   DocumentReference? driver,
+  DocumentReference? car,
 }) {
   final firestoreData = serializers.toFirestore(
     TripRecord.serializer,
@@ -65,7 +68,8 @@ Map<String, dynamic> createTripRecordData({
         ..to = to
         ..when = when
         ..driver = driver
-        ..passengers = null,
+        ..passengers = null
+        ..car = car,
     ),
   );
 

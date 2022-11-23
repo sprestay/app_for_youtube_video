@@ -241,8 +241,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                               child: FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  if (FFAppState().isDriver) {
+                                    context.pushNamed('CreateTrip');
+                                  }
                                 },
                                 text: functions.textOnButton(
                                     FFAppState().isDriver,
@@ -250,8 +252,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 46,
-                                  color: FFAppState().isDriver ||
-                                          FFAppState().isPassenger
+                                  color: functions.checkIfButtonShouldBeActive(
+                                          FFAppState().from,
+                                          FFAppState().to,
+                                          FFAppState().isDriver,
+                                          FFAppState().isPassenger)
                                       ? FlutterFlowTheme.of(context).activeColor
                                       : FlutterFlowTheme.of(context)
                                           .inActiveColor,

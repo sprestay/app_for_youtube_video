@@ -102,6 +102,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => SearchCityWidget(
                 isFROM: params.getParam('isFROM', ParamType.bool),
               ),
+            ),
+            FFRoute(
+              name: 'CreateTrip',
+              path: 'createTrip',
+              builder: (context, params) => CreateTripWidget(),
+            ),
+            FFRoute(
+              name: 'AddCar',
+              path: 'addCar',
+              builder: (context, params) => AddCarWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

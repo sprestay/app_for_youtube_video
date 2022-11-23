@@ -33,3 +33,31 @@ bool photoIsEmpty(String path) {
 bool stringIsEmpty(String str) {
   return str.isEmpty;
 }
+
+bool checkIfButtonShouldBeActive(
+  String from,
+  String to,
+  bool isDriver,
+  bool isPassenger,
+) {
+  return (isDriver || isPassenger) && !from.isEmpty && !to.isEmpty;
+}
+
+bool checkIfCarCorrect(
+  String photo,
+  String mark,
+  String model,
+  String regnumber,
+) {
+  return !photo.isEmpty &&
+      !mark.isEmpty &&
+      !model.isEmpty &&
+      !regnumber.isEmpty;
+}
+
+bool checkCreateTrip(
+  DocumentReference car,
+  DateTime date,
+) {
+  return car != null && date != null;
+}
