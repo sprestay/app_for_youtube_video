@@ -138,7 +138,7 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
-                                    'https://picsum.photos/seed/843/600',
+                                    uploadedFileUrl,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
