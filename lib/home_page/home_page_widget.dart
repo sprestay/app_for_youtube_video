@@ -244,6 +244,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 onPressed: () async {
                                   if (FFAppState().isDriver) {
                                     context.pushNamed('CreateTrip');
+                                  } else {
+                                    context.pushNamed('SearchTrip');
                                   }
                                 },
                                 text: functions.textOnButton(
