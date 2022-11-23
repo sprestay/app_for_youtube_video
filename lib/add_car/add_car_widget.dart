@@ -274,6 +274,20 @@ class _AddCarWidgetState extends State<AddCarWidget> {
                                 EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                             child: TextFormField(
                               controller: textController2,
+                              onFieldSubmitted: (_) async {
+                                await showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  context: context,
+                                  builder: (context) {
+                                    return Padding(
+                                      padding:
+                                          MediaQuery.of(context).viewInsets,
+                                      child: SelectedModelWidget(),
+                                    );
+                                  },
+                                ).then((value) => setState(() {}));
+                              },
                               autofocus: true,
                               readOnly: true,
                               obscureText: false,

@@ -112,6 +112,18 @@ class _SelectMarkWidgetState extends State<SelectMarkWidget> {
                   onTap: () async {
                     setState(() =>
                         FFAppState().selectedMark = listViewCarsRecord.mark!);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          FFAppState().selectedMark,
+                          style: TextStyle(
+                            color: FlutterFlowTheme.of(context).primaryText,
+                          ),
+                        ),
+                        duration: Duration(milliseconds: 4000),
+                        backgroundColor: Color(0x00000000),
+                      ),
+                    );
                     Navigator.pop(context);
                   },
                   child: ListTile(
