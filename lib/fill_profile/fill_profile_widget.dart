@@ -7,6 +7,7 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import '../flutter_flow/upload_media.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -156,6 +157,11 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                     ),
                     TextFormField(
                       controller: textController,
+                      onChanged: (_) => EasyDebounce.debounce(
+                        'textController',
+                        Duration(milliseconds: 100),
+                        () => setState(() {}),
+                      ),
                       autofocus: true,
                       obscureText: false,
                       decoration: InputDecoration(

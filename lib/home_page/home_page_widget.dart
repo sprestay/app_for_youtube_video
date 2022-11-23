@@ -15,8 +15,6 @@ class HomePageWidget extends StatefulWidget {
 }
 
 class _HomePageWidgetState extends State<HomePageWidget> {
-  TextEditingController? textController1;
-  TextEditingController? textController2;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -30,16 +28,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         return;
       }
     });
-
-    textController1 = TextEditingController();
-    textController2 = TextEditingController();
-  }
-
-  @override
-  void dispose() {
-    textController1?.dispose();
-    textController2?.dispose();
-    super.dispose();
   }
 
   @override
@@ -81,113 +69,46 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  TextFormField(
-                                    controller: textController1,
-                                    autofocus: true,
-                                    obscureText: false,
-                                    decoration: InputDecoration(
-                                      hintText: 'Откуда',
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .bodyText2,
-                                      enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .textPassive,
-                                          width: 1,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .textPassive,
-                                          width: 1,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      errorBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      focusedErrorBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
+                                  Container(
+                                    width: double.infinity,
+                                    height: 40,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                    child: InkWell(
+                                      onTap: () async {
+                                        context.pushNamed('SearchCity');
+                                      },
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Text(
+                                            'Откуда',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText2,
+                                          ),
+                                        ],
                                       ),
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText1,
                                   ),
-                                  TextFormField(
-                                    controller: textController2,
-                                    autofocus: true,
-                                    obscureText: false,
-                                    decoration: InputDecoration(
-                                      hintText: 'Куда',
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .bodyText2,
-                                      enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .textPassive,
-                                          width: 1,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .textPassive,
-                                          width: 1,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      errorBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      focusedErrorBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
+                                  Container(
+                                    width: double.infinity,
+                                    height: 40,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText1,
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Text(
+                                          'Куда',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText2,
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
