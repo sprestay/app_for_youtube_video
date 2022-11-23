@@ -315,7 +315,7 @@ class _CreateTripWidgetState extends State<CreateTripWidget> {
                               .override(
                                 fontFamily: 'Lato',
                                 color: functions.checkCreateTrip(
-                                        FFAppState().choosenCar!, datePicked!)
+                                        FFAppState().choosenCar, datePicked)
                                     ? FlutterFlowTheme.of(context).activeColor
                                     : FlutterFlowTheme.of(context)
                                         .inActiveColor,

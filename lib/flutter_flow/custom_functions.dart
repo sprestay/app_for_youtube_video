@@ -56,8 +56,8 @@ bool checkIfCarCorrect(
 }
 
 bool checkCreateTrip(
-  DocumentReference car,
-  DateTime date,
+  DocumentReference? car,
+  DateTime? date,
 ) {
   return car != null && date != null;
 }
