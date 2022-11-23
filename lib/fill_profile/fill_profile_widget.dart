@@ -129,7 +129,7 @@ class _FillProfileWidgetState extends State<FillProfileWidget> {
                                     ),
                                   ),
                                 ),
-                              if (functions.photoIsEmpty(uploadedFileUrl))
+                              if (!functions.photoIsEmpty(uploadedFileUrl))
                                 Container(
                                   width: 120,
                                   height: 120,
